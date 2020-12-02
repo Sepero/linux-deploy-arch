@@ -1,10 +1,12 @@
+
 # linux-deploy-arch
 
-This script fixes 3 problems encountered when installing Arch on Linux_Deploy for Android.
+This script fixes 4 problems encountered when installing Arch on Linux_Deploy for Android.
 
 1. Setting up the package fakeroot-tcp temporarily. 
 2. Installing the package fakeroot-tcp to the system. 
 3. Installing x11vnc desktop in place of tigervnc.
+4. Sets the users default shell to bash.
 
 Sources for creation:
 http://packages.debian.org/fakeroot
