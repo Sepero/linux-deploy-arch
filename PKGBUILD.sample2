@@ -1,0 +1,31 @@
+pkgname=fakeroot-tcp
+_pkgname=fakeroot
+pkgver=1.21
+pkgrel=1
+pkgdesc='Tool for simulating superuser privileges,with tcp ipc'
+license=('GPL') 
+url="http://packages.debian.org/fakeroot" 
+install=fakeroot.install
+depends=('glibc' 'filesystem' 'sed' 'util-linux' 'sh')
+provides=("${_pkgname}=${pkgver}-${pkgrel}")
+conflicts=("${_pkgname}")
+source=(http://ftp.debian.org/debian/pool/main/f/$_pkgname/${_pkgname}_${pkgver}.orig.tar.gz)
+curl -O  http://ftp.debian.org/debian/pool/main/f/fakeroot/${_pkgname}_${pkgver}.orig.tar.gz
+tar -xzf ${_pkgname}_${pkgver}.orig.tar.gz
+cd ${_pkgname}-${pkgver}
+./bootstrap
+#./configure --prefix=/opt/fakeroot/ \
+#    --libdir=/opt/fakeroot/libs \
+./configure --prefix=/home/a/fr/ \
+    --libdir=/home/a/fr/ \
+    --with-ipc=tcp \
+    --disable-static 
+
+    
+make
+#sudo make -k install /opt/fakeroot 
+sudo make -k install /home/a/fr
+#libtool --finish /opt/fakeroot/libs
+
+exit
+exit
