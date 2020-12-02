@@ -15,3 +15,7 @@ makepkg -si --noconfirm
 # chsh -s /bin/bash a
 
 #vncserver :0
+
+# Bash recommended
+# export HISTSIZE=3000
+# export HISTCONTROL=ignoreboth
