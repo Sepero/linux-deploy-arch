@@ -24,7 +24,8 @@ git clone https://aur.archlinux.org/yay.git
 # Bash recommended
 echo 'export HISTSIZE=3000' >> .bashrc
 echo 'export HISTCONTROL=ignoreboth' >> .bashrc
-echo 'export LD_LIBRARY_PATH=$HOME/fr/libs:/lib:/usr/lib' >> .bashrc
-echo 'export PATH=$HOME/fr/fakeroot/bin:$PATH' >> .bashrc
+echo 'export LD_LIBRARY_PATH=$HOME/fr/libfakeroot/:/lib:/usr/lib' >> .bashrc
+echo 'export PATH=$HOME/fr/bin:$PATH' >> .bashrc
 #export PATH=/opt/fakeroot/bin:$PATH' >> .bashrc
 #export LD_LIBRARY_PATH=/opt/fakeroot/libs:/lib:/usr/lib' >> .bashrc
+#./libtool   --mode=install /usr/bin/install -c faked '/opt/fakeroot/bin'
