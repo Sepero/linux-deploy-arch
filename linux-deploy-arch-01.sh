@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --noconfirm --overwrite '*' base-devel go git screen x11vnc || exit
+sudo pacman -S --overwrite '*' base-devel go git screen x11vnc
+#sudo pacman -S --noconfirm --overwrite '*' base-devel go git screen x11vnc || exit
 # download + build PKGBUILD for temp fakeroot-tcp
 
 sudo chsh -s /bin/bash $(whoami)
