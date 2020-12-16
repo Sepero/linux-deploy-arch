@@ -24,8 +24,8 @@ git clone https://aur.archlinux.org/yay.git
 # Bash recommended
 echo 'export HISTSIZE=3000' > .bashrc2
 echo 'export HISTCONTROL=ignoreboth' >> .bashrc2
-echo 'export LD_LIBRARY_PATH=$HOME/fr/libfakeroot/:/lib:/usr/lib' >> .bashrc2
-echo 'export PATH=$HOME/fr/bin:$PATH' >> .bashrc2
+#echo 'export LD_LIBRARY_PATH=/opt/fakeroot/:/lib:/usr/lib' >> .bashrc2
+echo 'export PATH=/opt/fakeroot/bin:$PATH' >> .bashrc2
 #export PATH=/opt/fakeroot/bin:$PATH' >> .bashrc2
 #export LD_LIBRARY_PATH=/opt/fakeroot/libs:/lib:/usr/lib' >> .bashrc2
 #./libtool   --mode=install /usr/bin/install -c faked '/opt/fakeroot/bin'
@@ -33,5 +33,5 @@ echo 'export PATH=$HOME/fr/bin:$PATH' >> .bashrc2
 echo "Add improvements to bash? [Y/n]"
 read i
 if [ "$i" != "n" ]; then
-  echo ". . ~/.bashrc2" >> .bashrc
+  echo ". ~/.bashrc2" >> .bashrc
 fi
