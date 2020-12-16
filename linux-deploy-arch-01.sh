@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --noconfirm --overwrite '*' base-devel go git #x11vnc
+sudo pacman -S --noconfirm --overwrite '*' base-devel go git screen x11vnc || exit
 # download + build PKGBUILD for temp fakeroot-tcp
 
 sudo chsh -s /bin/bash $(whoami)
@@ -22,10 +22,16 @@ git clone https://aur.archlinux.org/yay.git
 #vncserver :0
 
 # Bash recommended
-echo 'export HISTSIZE=3000' >> .bashrc
-echo 'export HISTCONTROL=ignoreboth' >> .bashrc
-echo 'export LD_LIBRARY_PATH=$HOME/fr/libfakeroot/:/lib:/usr/lib' >> .bashrc
-echo 'export PATH=$HOME/fr/bin:$PATH' >> .bashrc
-#export PATH=/opt/fakeroot/bin:$PATH' >> .bashrc
-#export LD_LIBRARY_PATH=/opt/fakeroot/libs:/lib:/usr/lib' >> .bashrc
+echo 'export HISTSIZE=3000' > .bashrc2
+echo 'export HISTCONTROL=ignoreboth' >> .bashrc2
+echo 'export LD_LIBRARY_PATH=$HOME/fr/libfakeroot/:/lib:/usr/lib' >> .bashrc2
+echo 'export PATH=$HOME/fr/bin:$PATH' >> .bashrc2
+#export PATH=/opt/fakeroot/bin:$PATH' >> .bashrc2
+#export LD_LIBRARY_PATH=/opt/fakeroot/libs:/lib:/usr/lib' >> .bashrc2
 #./libtool   --mode=install /usr/bin/install -c faked '/opt/fakeroot/bin'
+
+echo "Add improvements to bash? [Y/n]"
+read i
+if [ "$i" != "n" ]; then
+  echo ". . ~/.bashrc2" >> .bashrc
+fi

@@ -1,12 +1,7 @@
-# Maintainer:  4679 <admin@libnull.com>
-# Contributor:  Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
-# Contributor: Allan McRae <allan@archlinux.org>
-# Contributor: Jochem Kossen <j.kossen@home.nl>
-
 pkgname=fakeroot-tcp
 _pkgname=fakeroot
-pkgver=1.25.3
-pkgrel=2
+pkgver=1.21
+pkgrel=1
 pkgdesc='Tool for simulating superuser privileges,with tcp ipc'
 arch=('i686' 'x86_64' 'armv7h' 'aarch64')
 license=('GPL')
@@ -16,29 +11,17 @@ depends=('glibc' 'filesystem' 'sed' 'util-linux' 'sh')
 makedepends=('po4a' 'automake')
 provides=("${_pkgname}=${pkgver}-${pkgrel}")
 conflicts=("${_pkgname}")
-source=(http://ftp.debian.org/debian/pool/main/f/$_pkgname/${_pkgname}_${pkgver}.orig.tar.gz
-        silence-dlerror.patch)
-md5sums=('964e5f438f1951e5a515dd54edd50fa6')
+source=(${_pkgname}_${pkgver}.orig.tar.gz)
+md5sums=('be5c9a0e516869fca4a6758105968e5a')
 
-
-tar -xzf 
+tar -xzf ${_pkgname}_${pkgver}.orig.tar.gz
 cd $_pkgname-$pkgver
 ./bootstrap
-./configure --prefix=/usr \
-    --libdir=/usr/lib/libfakeroot \
+./configure --prefix=/opt/fakeroot \
+    --libdir=/opt/fakeroot/libs \
     --disable-static \
     --with-ipc=tcp
-
 make
-
-package() {
-  cd $_pkgname-$pkgver
-  make DESTDIR="$pkgdir" install
-
-  install -dm755 "$pkgdir"/etc/ld.so.conf.d/
-  echo '/usr/lib/libfakeroot' > "$pkgdir"/etc/ld.so.conf.d/fakeroot.conf
-
-  # install README for sysv/tcp usage
-  install -Dm644 README "$pkgdir"/usr/share/doc/$_pkgname/README
-}
-
+sudo make install /opt/fakeroot/bin/fakeroot
+exit
+exit
