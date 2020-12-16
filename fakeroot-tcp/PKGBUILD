@@ -17,7 +17,7 @@ makedepends=('po4a' 'automake')
 provides=("${_pkgname}=${pkgver}-${pkgrel}")
 conflicts=("${_pkgname}")
 source=(${_pkgname}_${pkgver}.orig.tar.gz)
-#md5sums=('964e5f438f1951e5a515dd54edd50fa6')
+md5sums=('be5c9a0e516869fca4a6758105968e5a')
 
 build() {
   cd $_pkgname-$pkgver
